@@ -1,4 +1,4 @@
-baseurl: ''
+baseurl: '/web-preview'
 exclude: ['README.md', vendor]
 permalink: pretty
 title: 'PATh'

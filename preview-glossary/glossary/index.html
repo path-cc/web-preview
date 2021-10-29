@@ -17,16 +17,15 @@
     <meta name="twitter:site" content="PATh" />
     <meta name="twitter:creator" content="" />
     <meta name="twitter:image" content="images/logo/Logo_Round_Med.png" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <body class='page '>
 <div id="main-menu-mobile" class="main-menu-mobile">
   
   <ul>
-    
-    <li class="">
-      
-      <a href="/web-preview/preview-glossary/about/">About</a>
-    </li>
     
     <li class="">
       
@@ -70,11 +69,16 @@
 
       <div id="navbarNavDropdown" class="collapse navbar-collapse justify-content-between">
         <ul class="navbar-nav">
-          
-          
-          <li class="nav-item ">
-            <a class="nav-link" href="/web-preview/preview-glossary/about/">About</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="about-nav" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              About
+            </a>
+            <div class="dropdown-menu" aria-labelledby="about-nav">
+              <a class="dropdown-item" href="/web-preview/preview-glossary/about">PATh</a>
+              <a class="dropdown-item" href="/web-preview/preview-glossary/glossary">Glossary</a>
+            </div>
           </li>
+          
           
           <li class="nav-item ">
             <a class="nav-link" href="/web-preview/preview-glossary/services/">Services</a>
@@ -183,12 +187,9 @@
 </div>
 
 <div class="row bg-white-offset p-2 mb-2">
-  <div class="col-12">
+  <div class="col-12 col-lg-7">
     <h5 id="open-science-compute-federation-oscf">Open Science Compute Federation (OSCF)</h5>
     <p>The OSCF provides a set of services for requesting and allocating computing resources and creating <a href="#distributed-high-throughput-computing-dhtc">dHTC</a> environments.</p>
-
-    <p class="justify-content-center d-flex"><img class="img-fluid" src="../images/OSFC-graphic.jpg" alt="OSFC graphic detailing the interaction between the CE, factory, and resources"></p>
-
     <ul>
       <li>The <a href="#compute-entrypoint-ce">CE</a>, hosted on-prem or off-prem, provide a way for the factory to
         send resource requests to a compute resource.</li>
@@ -196,20 +197,24 @@
       <li>If HTCSS is used by the organization the resource start and <a href="#execution-point-ep">EP</a> and join the <a href="#central-manager">Central Manager</a>.</li>
     </ul>
   </div>
+  <div class="col-12 col-lg-5 justify-content-center d-flex">
+    <img class="img-fluid my-auto" src="../images/OSFC-graphic.jpg" alt="OSFC graphic detailing the interaction between the CE, factory, and resources">
+  </div>
 </div>
 
 <div class="row bg-white-offset p-2 mb-2">
-  <div class="col-12">
+  <div class="col-12 col-lg-7">
     <h5 id="open-science-pool-ospool">Open Science Pool (OSPool)</h5>
     <p>An environment for any scientist or group doing open science in the US.</p>
-
-    <p class="justify-content-center d-flex"><img class="img-fluid" src="../images/OSPool-graphic.jpg" alt="Graphic detailing the interaction happening in the OSPool"></p>
 
     <ul>
       <li>Any campus, group, or collaboration can attach an access point to the OSPool and receive a share of the resources.</li>
       <li>OSG operates the OSG Connect AP, meant to provide a place for PI-driven groups to place their jobs.</li>
       <li>Users can Bring Your Own Resources (BYOR) to utilize their own resources (such as an XRAC allocation) via the OSPool.</li>
     </ul>
+  </div>
+  <div class="col-12 col-lg-5 justify-content-center d-flex">
+    <img class="img-fluid my-auto" src="../images/OSPool-graphic.jpg" alt="Graphic detailing the interaction happening in the OSPool">
   </div>
 </div>
         </div>

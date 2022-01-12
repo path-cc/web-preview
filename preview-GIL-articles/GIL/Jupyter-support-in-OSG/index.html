@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>GIL Reporting</title>
+    <title>Global Infrastructure Laboratory: Options for Jupyter Support in OSG</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="/web-preview/preview-GIL-articles/images/logo/Logo_Round_32x32.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -123,91 +123,33 @@
     <main>
         <div class="container pb-5">
             <div class="pt-5">
-    <h1 class="title pt-6">GIL Reporting
+    <h1 class="title pt-6">Global Infrastructure Laboratory: Options for Jupyter Support in OSG
     
 </h1>
 
 </div>
-<div class="row mb-3">
-    
-    
-    <div class="col-12 col-md-6 mb-3">
-        <div class="news news-summary">
-            <div class="article-content">
-                <h2 class="article-title">
-                    <a href="/web-preview/preview-GIL-articles/GIL/proposal_for_classifying_the_utilization_of_osg/">Proposal for classifying the utilization of OSG</a>
-                </h2>
-                <h2 class="article-title">
-                    <small class="text-muted">January  7, 2022</small>
-                </h2>
-                <p><p>For this proposal, we are concerned only about wall time measures due to the combined gWMS and HTCondor systems. The proposed classification thus may be understood largely as a walk through the “state machine” of how these two systems work together.</p>
-</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-12 col-md-6 mb-3">
-        <div class="news news-summary">
-            <div class="article-content">
-                <h2 class="article-title">
-                    <a href="/web-preview/preview-GIL-articles/GIL/multiple_files_vs_tar_gz/">Multiple files vs. Tar.gz</a>
-                </h2>
-                <h2 class="article-title">
-                    <small class="text-muted">January  7, 2022</small>
-                </h2>
-                <p><p>The objective of these tests is to check if it is faster to transfer each file separately or compress all the files on a tar.gz file for a job on the Open Science Grid (OSG) using the HTCondor.</p>
-</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-12 col-md-6 mb-3">
-        <div class="news news-summary">
-            <div class="article-content">
-                <h2 class="article-title">
-                    <a href="/web-preview/preview-GIL-articles/GIL/data_robustness_and_scalability_on_open_science_grid/">Data robustness and scalability on Open Science Grid</a>
-                </h2>
-                <h2 class="article-title">
-                    <small class="text-muted">December 31, 2021</small>
-                </h2>
-                <p><p>This document provides a set of results about the data access in the Open Science Grid (OSG). The objective is to show issues on data access of an OSG job.  All the process follows a methodology to understand how a user requests the information and any problem with this process.</p>
-</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-12 col-md-6 mb-3">
-        <div class="news news-summary">
-            <div class="article-content">
-                <h2 class="article-title">
-                    <a href="/web-preview/preview-GIL-articles/GIL/A100_MIG_support_in_OSG_with_emphasis_on_IceCube_09_27_2021/">A100 MIG support in OSG, with emphasis on IceCube</a>
-                </h2>
-                <h2 class="article-title">
-                    <small class="text-muted">September 27, 2021</small>
-                </h2>
-                <p><p>This document provides an assessment of the feasibility to use the NVIDIA A100 GPU Multi Instance Graphics (MIG) capabilities inside OSG, with a particular emphasis on IceCube. MIG allows an A100 GPU to be split in several partitions that can be assigned to independent compute jobs. (MIG is also available on the NIVIDA A30 GPUs, but we currently have no HW to test).</p>
-</p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-12 col-md-6 mb-3">
-        <div class="news news-summary">
-            <div class="article-content">
-                <h2 class="article-title">
-                    <a href="/web-preview/preview-GIL-articles/GIL/Jupyter-support-in-OSG/">Global Infrastructure Laboratory: Options for Jupyter Support in OSG</a>
-                </h2>
-                <h2 class="article-title">
-                    <small class="text-muted">March 31, 2021</small>
-                </h2>
-                <p><p>GIL conducted an open dicussion with the entire OSG staff@opensciencegrid.org mailing list on March 9, 2021.
-The team reviewed the <a href="https://docs.google.com/document/d/1d7-x5Kh6IayZR5BYQduhYf__5mFUckvMN0xBJ9iD1G0/">proposal document</a> and concluded the following.</p>
-</p>
-            </div>
-        </div>
-    </div>
-    
-</div>
+<h3 id="summary-of-gil-discussion-of-options-for-jupyter-support-in-osg">Summary of GIL Discussion of Options for Jupyter Support in OSG</h3>
+
+<p>GIL conducted an open dicussion with the entire OSG staff@opensciencegrid.org mailing list on March 9, 2021. 
+The team reviewed the <a href="https://docs.google.com/document/d/1d7-x5Kh6IayZR5BYQduhYf__5mFUckvMN0xBJ9iD1G0/">proposal document</a> and concluded the following:</p>
+
+<blockquote>
+  <p>A. We do not want to support notebooks as jobs on OSG (Option 1 in the document). There is not enough value to be gained given the complexity and thus cost to support something like this. At least not in the foreseeable future.</p>
+</blockquote>
+
+<blockquote>
+  <p>B. We see value in supporting jupyter notebooks as an access point for batch computing on OSG (Option 2 in the document), even if we do not support quasi-realtime functionality. I.e. even if all we supported was a jupyter notebook terminal from which somebody could do everything they presently do with the ssh-login, it would be a worthwhile addition. Such an addition might lead us to embrace “non-terminal” notebook functionality over time. E.g. integration with Rucio commands, or possibly having graphical displays of progress of workflows towards completion, etc. etc. might be possible future enhancements.</p>
+</blockquote>
+
+<blockquote>
+  <p>C. We see value in jupyter notebook as an access point from two perspectives. OSG Open Pool single researcher support, i.e. us as a “research computing provider”, as well as providing documentation for how campuses can support their users on the notebook environment that they support for them with OSG as a “notebook backend batch system”.</p>
+</blockquote>
+
+<blockquote>
+  <p>D. We agreed that what exactly we will support along these lines, and when is now a management decision about effort. In particular, it seems unlikely that we have the freedom to support anything along these lines until we have replaced the effort we recently lost due to staff departures.</p>
+</blockquote>
+
+
         </div>
     </main>
 </div>

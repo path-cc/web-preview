@@ -3043,7 +3043,7 @@ h2, .h2 { font-family: "Playfair Display", serif, -apple-system; margin-bottom: 
 
 h3, .h3 { font-family: "Playfair Display", serif, -apple-system; }
 
-ul, ol { margin: 0; margin-bottom: 1rem; padding: 0; }
+ul, ol { margin: 0; margin-bottom: 1rem; padding-left: 1rem; }
 ul li, ol li { color: #5C5A5A; padding: 0; padding-bottom: .2rem; margin: 0; }
 
 .page { display: flex; min-height: 100vh; flex-direction: column; }

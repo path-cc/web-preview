@@ -65,7 +65,7 @@
 
 <div class="py-1">
     <div class="container-lg my-1">
-        <a href="/facility" class="text-decoration-none bg-primary rounded p-1 me-2 text-white">New Service</a><span><b>PATh compute credits</b> now available to researchers! Learn how PATh can power your research on the <a href="/facility">facility</a> page.</span>
+        <a href="/facility" class="text-decoration-none border border-1 bg-light rounded p-1 me-2">New Service</a><span>PATh compute credits now available to researchers! Learn how PATh can power your research on the <a href="/facility">facility</a> page.</span>
     </div>
 </div>
 <hr class="m-0">
@@ -136,10 +136,10 @@
 </div>
 
 <main>
-    <div class="bg-light">
+    <div id="hero" class="">
         <div class="container-lg py-4">
             <div class="row mb-3">
-                <div class="col-12 col-lg-7">
+                <div class="col-12 col-md-12 col-lg-9 col-xxl-7">
                     <h2 class="">PATh advances the state of <br>distributed high-throughput computing!</h2>
                     <hr class="m-0 mb-4">
                     <p class="fs-5">
@@ -150,9 +150,6 @@
                         PATh provides <b>organizations</b><br> with technologies, and services to build and share dHTC capacity.
                     </p>
                     <a href="#path-for-organizations" class="btn btn-outline-primary mb-3">PATh for Organizations</a>
-                </div>
-                <div class="col-6 col-lg-5 d-none d-lg-flex">
-                    <img class="d-none d-md-block img-fluid" src="/web-preview/preview-homepage-refresh/images/logo/PATh_Logo_Primary_Color_Vertical.svg"/>
                 </div>
             </div>
         </div>
@@ -169,13 +166,18 @@
                     </h3>
                     <p class="fs-5">
                         <b>New!</b> Complementing our technologies and services, PATh has dedicated compute resources
-                        in the <a href="/facility/#using-path-facilities">PATh facility</a>.
-                        <a href="https://www.nsf.gov/pubs/2022/nsf22051/nsf22051.jsp">Apply for compute credits</a> now!
+                        in the <a href="/facility/#using-path-facilities">PATh facility</a> made available by the NSF through request.
+                        <div>
+                            <a class="btn btn-outline-dark text-decoration-none" href="https://www.nsf.gov/pubs/2022/nsf22051/nsf22051.jsp">Apply for compute credits</a>
+                        </div>
                     </p>
                     <p class="fs-5">
-                        US-affiliated projects can use an
-                        <a href="https://www.osgconnect.net/">OSG-Connect</a> Access Point to harness the capacity of the
-                        <a href="https://opensciencegrid.org/about/open_science_pool/">Open Science Pool</a>.
+                        US-affiliated researchers can use an OSG-Connect Access Point to harness the capacity of the
+                        <a href="https://opensciencegrid.org/about/open_science_pool/">Open Science Pool</a> to run their
+                        HTC workloads.
+                        <div>
+                            <a class="btn btn-outline-dark text-decoration-none" href="https://connect.osg-htc.org/">Learn more about OSGConnect</a>
+                        </div>
                     </p>
                 </div>
             </div>
@@ -191,10 +193,12 @@
                         Share computing capacity, data, and software between collaborators and even across continents.
                     </p>
                     <p class="fs-5 text-start text-lg-end">
-                        Connect or contribute campus computing and data resources into the
+                        Share campus computing and data resources into the
                         <a href="https://opensciencegrid.org/campus-cyberinfrastructure.html">US national cyberinfrastructure
-                            via OSG</a>. Contact us at <a href="mailtto:support@opensciencegrid.org">support@opensciencegrid.org</a>
-                        to collaborate on the right options for your desired outcomes.
+                            </a> via OSG. Contact our support staff to collaborate on the right options for your desired outcomes.
+                        <div class="d-flex">
+                            <a class="ms-lg-auto btn btn-outline-dark text-decoration-none" href="mailtto:support@opensciencegrid.org">Contact Support Staff</a>
+                        </div>
                     </p>
                 </div>
             </div>
@@ -204,15 +208,15 @@
         </div>
     </div>
     <div class="container-lg">
-        <div id="News & Events" class="row mt-4 mb-4 section-break">
-    <div class="col">
-        <hr>
+        <div id="News & Events" class="row mt-4 mb-4">
+    <div class="col d-flex">
+        <hr class="my-auto w-100">
     </div>
-    <div class="col-auto section-header">
-        News & Events
+    <div class="col-auto">
+        <h5 class="mb-0">News & Events</h5>
     </div>
-    <div class="col">
-        <hr>
+    <div class="col d-flex">
+        <hr class="my-auto w-100">
     </div>
 </div>
 
@@ -222,24 +226,24 @@
 
 
 
-            <div class="col-12 col-md-6 col-lg-4 bg-light">
+            <div class="col-12 col-md-6 col-lg-4">
                 
-                    <div class="mt-2">
-    <h2>
-        <a href="/web-preview/preview-homepage-refresh/news/2022-02-22-ML-and-Image-Analyses-for-Livestock-Data/">
+                    <a class="text-decoration-none d-block" href="/web-preview/preview-homepage-refresh/news/2022-02-22-ML-and-Image-Analyses-for-Livestock-Data/">
+    <div class="mt-2 rounded p-2 pt-1 shadow-sm hover-shadow bg-light">
+        <h2>
             Machine Learning and Image Analyses for Livestock Data
-        </a>
-        
-        <small class="article-date text-muted">February 22, 2022</small>
-        
-    </h2>
-    <div style="height:250px" class="mb-2">
-        <img style="object-fit: cover" class="w-100 h-100" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/cow-ml-image-cropped.jpg" alt="Cows Feeding with machine Learning overlay">
+            
+        </h2>
+        <div style="height:250px" class="mb-2">
+            <img style="object-fit: cover" class="w-100 h-100" src="https://raw.githubusercontent.com/CHTC/Articles/main/images/cow-ml-image-cropped.jpg" alt="Cows Feeding with machine Learning overlay">
+        </div>
+        <div class="text-dark">
+            In this presentation from HTCondor Week 2021, Joao Dorea from the Digital Livestock Lab explains how high-throughput computing is used in the field of animal and dairy sciences.
+
+        </div>
+
     </div>
-    <p>In this presentation from HTCondor Week 2021, Joao Dorea from the Digital Livestock Lab explains how high-throughput computing is used in the field of animal and dairy sciences.</p>
-
-</div>
-
+</a>
                 
             </div>
             
@@ -252,22 +256,22 @@
 
 
             <div class="col-12 col-lg-4">
-                <h2 class="text-primary">
+                <h2 class="text-primary pb-1">
                     Upcoming Events
                 </h2>
-                <hr class="mt-0">
                 
                     <div class="col-12 col-sm-10 col-md-6 col-lg-12">
                         
 
-<div class="dark-card">
+<div>
+    <a class="text-decoration-none"
     
-        <a href="/web-preview/preview-homepage-refresh/events/HTCondorWeek-2022/">
+        href="/web-preview/preview-homepage-refresh/events/HTCondorWeek-2022/">
     
-        <div class="card">
+        <div class="card hover-shadow shadow-sm border-0">
             
-                <div class="card-header">
-                    <h3 class="m-0 text-dark">
+                <div class="card-header p-1">
+                    <h3 class=" m-0 text-dark">
                         
                             
                             MAY 23-26
@@ -280,8 +284,8 @@
             
                 <img alt="" class="card-img" src="/web-preview/preview-homepage-refresh/images/HTCondor_Banner.jpg" >
             
-            <div class="card-body">
-                <h3 class="card-title text-dark ps-1 m-0">
+            <div class="card-body p-1">
+                <h3 class="text-decoration-none card-title text-dark ps-1 m-0">
                     HTCondor Week 2022
                 </h3>
             </div>
@@ -295,44 +299,47 @@
                 <a class="twitter-timeline" data-height="600" data-dnt="true" data-theme="light" href="https://twitter.com/opensciencegrid/lists/1508877823339073540?ref_src=twsrc%5Etfw"></a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
-        <div id="About" class="row mt-4 mb-4 section-break">
-    <div class="col">
-        <hr>
+        <div id="About" class="row mt-4 mb-4">
+    <div class="col d-flex">
+        <hr class="my-auto w-100">
     </div>
-    <div class="col-auto section-header">
-        About
+    <div class="col-auto">
+        <h5 class="mb-0">About</h5>
     </div>
-    <div class="col">
-        <hr>
+    <div class="col d-flex">
+        <hr class="my-auto w-100">
     </div>
 </div>
 
         <div class="row mb-4">
             <div class="col-12 col-lg-4 order-2">
-                <h2 class="text-primary mb-0">Partners</h2>
-                <hr class="header-break">
+                <h2 class="text-primary  pb-1">Partners</h2>
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-6 col-lg-12">
-                        <div class="dark-card">
+                        <div class="bg-light mb-2">
     <a href="https://chtc.cs.wisc.edu/">
-        <div class="card">
+        <div class="card border-0 hover-shadow shadow-sm bg-light p-2">
             
-            
-            <img alt="Center for High Throughput Computing Logo" class="card-img mt-2 mb-2" src="/web-preview/preview-homepage-refresh/images/CHTC-centered.svg" />
-            
+            <div>
+                
+                <img alt="Center for High Throughput Computing Logo" class="card-img" src="/web-preview/preview-homepage-refresh/images/CHTC-centered.svg" />
+                
+            </div>
         </div>
     </a>
 </div>
 
                     </div>
                     <div class="col-12 col-sm-6 col-lg-12">
-                        <div class="dark-card">
+                        <div class="bg-light mb-2">
     <a href="https://opensciencegrid.org/">
-        <div class="card">
+        <div class="card border-0 hover-shadow shadow-sm bg-light p-2">
             
-            
-            <img alt="Open Science Grid Logo" class="card-img mt-2 mb-2" src="/web-preview/preview-homepage-refresh/images/logo/OSG-logo.svg" />
-            
+            <div>
+                
+                <img alt="Open Science Grid Logo" class="card-img" src="/web-preview/preview-homepage-refresh/images/logo/OSG-logo.svg" />
+                
+            </div>
         </div>
     </a>
 </div>

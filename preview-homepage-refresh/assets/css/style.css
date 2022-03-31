@@ -3426,6 +3426,8 @@ main p a { text-decoration: underline; }
 
 .image-card-cap { height: 150px; object-fit: cover; }
 
+.content img { max-width: 100%; }
+
 .hover-shadow-sm:hover { box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important; }
 
 .hover-shadow:hover { box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important; }

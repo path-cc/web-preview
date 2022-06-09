@@ -113,13 +113,13 @@ In collaboration with David Schultz, UW Madison</p>
 
 <h3 id="executive-summary">Executive summary</h3>
 
-<p>OSG currently accounts for GPU resources in “GPU chip hours” <a href="https://gracc.opensciencegrid.org/d/000000118/gpu-payload-jobs-summary">[1]</a>. The GPUs are however not all the same, some are small and some are big; the science delivered from different models thus varies by an order of magnitude. Moreover, a single GPU could be shared between multiple jobs.</p>
+<p>OSG currently accounts for GPU resources in “GPU chip hours” <a href="#source1">[1]</a>. The GPUs are however not all the same, some are small and some are big; the science delivered from different models thus varies by an order of magnitude. Moreover, a single GPU could be shared between multiple jobs.</p>
 
 <p>We thus propose that OSG starts treating GPUs similarly to CPUs, i.e., switches GPU-core-hours, like we do for CPUs.</p>
 
 <h3 id="relative-gpu-performance">Relative GPU performance</h3>
 
-<p>We measured the throughput of two IceCube workflows on the various GPUs provided by the Pacific Research Platform (PRP) <a href="https://ucsd-prp.gitlab.io">[2]</a>. IceCube is the major user of GPU resources in OSG, so we consider them reasonably representative. The two workflows represent the two extremes of their compute needs; the “oversize=1” is the most GPU-compute demanding and the “oversize=4” is the fastest, and thus has a significantly lower GPU-to-CPU needs.</p>
+<p>We measured the throughput of two IceCube workflows on the various GPUs provided by the Pacific Research Platform (PRP) <a href="#source2">[2]</a>. IceCube is the major user of GPU resources in OSG, so we consider them reasonably representative. The two workflows represent the two extremes of their compute needs; the “oversize=1” is the most GPU-compute demanding and the “oversize=4” is the fastest, and thus has a significantly lower GPU-to-CPU needs.</p>
 
 <figure class="figure py-4">
     <img class="figure-img img-fluid" src="/web-preview/preview-new-gil-entry/images/GIL/limits_of_current_gpu_accounting_in_osg/image1.png" alt="Data access and OSG job data request." />
@@ -168,7 +168,7 @@ In collaboration with David Schultz, UW Madison</p>
 
 <h3 id="kubernetes-gpu-sharing">Kubernetes GPU sharing</h3>
 
-<p>Google Kubernetes Engine <a href="https://cloud.google.com/kubernetes-engine">[3]</a> is adding the option of sharing the same GPU between multiple pods. The feature was still in limited-preview at the time of testing, but is expected to be generally available soon.</p>
+<p>Google Kubernetes Engine <a href="#source3">[3]</a> is adding the option of sharing the same GPU between multiple pods. The feature was still in limited-preview at the time of testing, but is expected to be generally available soon.</p>
 
 <p>Due to the limited-preview nature of the setup, we are not presenting the configuration used, but we are allowed to present the benchmarking results. As can be seen in Table 4, the throughput improvement is comparable to HTCondor sharing.</p>
 
@@ -184,7 +184,7 @@ In collaboration with David Schultz, UW Madison</p>
 
 <h3 id="hardware-partitioning-of-a100-gpu">Hardware partitioning of A100 GPU</h3>
 
-<p>The NVIDIA A100 GPU can be partitioned at a hardware level using Multi Instance GPU (MIG) <a href="https://docs.nvidia.com/datacenter/tesla/mig-user-guide/">[4]</a>.</p>
+<p>The NVIDIA A100 GPU can be partitioned at a hardware level using Multi Instance GPU (MIG) <a href="#source4">[4]</a>.</p>
 
 <p>We benchmarked the IceCube workloads on both full A100 and MIG-partitioned GPUs, on both PRP and GKE, and present the results below. As can be seen in Table 5, the throughput improvement is comparable to both HTCondor and Kubernetes sharing, although partitioning in less than 7 partitions results in 1/7th of the HW to be idled.</p>
 
@@ -226,9 +226,9 @@ In collaboration with David Schultz, UW Madison</p>
 
 <p>IceCube has been internally using a GPU-normalization method that relies on the GPU model name, which is typically available in the HTCondor job history logs. (Note that A100 MIG model reporting is currently partially broken)</p>
 
-<p>They maintain a lookup table from GPU model to relative performance, based on their own internal benchmark numbers <a href="https://github.com/WIPACrepo/monitoring-scripts/blob/master/condor_utils.py#L436">[5]</a>.</p>
+<p>They maintain a lookup table from GPU model to relative performance, based on their own internal benchmark numbers <a href="#source5">[5]</a>.</p>
 
-<p>A more general solution is to account the GPUs by the number of cores they provide (similarly to what is currently being done for CPUs) <a href="https://doi.org/10.48550/arXiv.2205.09232">[6]</a>. HTCondor natively does support the detection of GPU cores, but it is typically not enabled by default, but can be easily enabled at pilot level with:</p>
+<p>A more general solution is to account the GPUs by the number of cores they provide (similarly to what is currently being done for CPUs) <a href="#source6">[6]</a>. HTCondor natively does support the detection of GPU cores, but it is typically not enabled by default, but can be easily enabled at pilot level with:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GPU_DISCOVERY_EXTRA = $(GPU_DISCOVERY_EXTRA) -extra
 </code></pre></div></div>
@@ -353,17 +353,19 @@ CUDAECCEnabled=false</code>
 <h3 id="references">References</h3>
 
 <ol>
-  <li>GRACC- GPU Payload Jobs Summary, <a href="https://gracc.opensciencegrid.org/d/000000118/gpu-payload-jobs-summary">https://gracc.opensciencegrid.org/d/000000118/gpu-payload-jobs-summary</a></li>
-  <li>Nautilus Documentation, <a href="https://ucsd-prp.gitlab.io">https://ucsd-prp.gitlab.io</a></li>
-  <li>Google Kubernetes Engine (GKE)<a href="https://cloud.google.com/kubernetes-engine">https://cloud.google.com/kubernetes-engine</a></li>
-  <li>NVIDIA Multi-Instance GPU User Guide, <a href="https://docs.nvidia.com/datacenter/tesla/mig-user-guide/">https://docs.nvidia.com/datacenter/tesla/mig-user-guide/</a></li>
-  <li>WIPACrepo/monitoring-scripts/condor_utils.py GitHub, <a href="https://github.com/WIPACrepo/monitoring-scripts/blob/master/condor_utils.py#L436">https://github.com/WIPACrepo/monitoring-scripts/blob/master/condor_utils.py#L436</a></li>
-  <li>Sfiligoi et al. The anachronism of whole-GPU accounting. Accepted for publication at PEARC22. Pre-print <a href="https://doi.org/10.48550/arXiv.2205.09232">https://doi.org/10.48550/arXiv.2205.09232</a></li>
+  <li>GRACC- GPU Payload Jobs Summary, <a href="https://gracc.opensciencegrid.org/d/000000118/gpu-payload-jobs-summary" id="source1">https://gracc.opensciencegrid.org/d/000000118/gpu-payload-jobs-summary</a></li>
+  <li>Nautilus Documentation, <a href="https://ucsd-prp.gitlab.io" id="source2">https://ucsd-prp.gitlab.io</a></li>
+  <li>Google Kubernetes Engine (GKE)<a href="https://cloud.google.com/kubernetes-engine" id="source3">https://cloud.google.com/kubernetes-engine</a></li>
+  <li>NVIDIA Multi-Instance GPU User Guide, <a href="https://docs.nvidia.com/datacenter/tesla/mig-user-guide/" id="source4">https://docs.nvidia.com/datacenter/tesla/mig-user-guide/</a></li>
+  <li>WIPACrepo/monitoring-scripts/condor_utils.py GitHub, <a href="https://github.com/WIPACrepo/monitoring-scripts/blob/master/condor_utils.py#L436" id="source5">https://github.com/WIPACrepo/monitoring-scripts/blob/master/condor_utils.py#L436</a></li>
+  <li>Sfiligoi et al. The anachronism of whole-GPU accounting. Accepted for publication at PEARC22. Pre-print <a href="https://doi.org/10.48550/arXiv.2205.09232" id="source6">https://doi.org/10.48550/arXiv.2205.09232</a></li>
 </ol>
 
 <h3 id="acknowledgements">Acknowledgements</h3>
 
-<p>This work has been partially funded by the US National Science Foundation (NSF) Grants OAC-1826967, OAC-2030508, CNS-1925001, OAC-1841530, CNS-1730158, OAC-2112167, CNS-2100237 and CNS-2120019. All Google Kubernetes Engine costs have been covered by Google-issued credits.</p>
+<p>This work has been partially funded by the US National Science Foundation (NSF) Grants OAC-1826967, OAC-2030508, CNS-1925001, OAC-1841530, CNS-1730158, OAC-2112167, CNS-2100237 and CNS-2120019.</p>
+
+<p>All Google Kubernetes Engine costs have been covered by Google-issued credits.</p>
 
 
     </div>

@@ -19,21 +19,41 @@
     <meta name="twitter:site" content="PATh" />
     <meta name="twitter:creator" content="" />
     <meta name="twitter:image" content="images/logo/Logo_Round_Med.png" />
+    <meta name="google-site-verification" content="ZmoYUNawmA-Tr3VNrpFqNBEMCBeldJxpgFwOAaa0TNw" />
+
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to Transfer 460 Terabytes? A File Transfer Case Study | PATh</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="How to Transfer 460 Terabytes? A File Transfer Case Study" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="How Greg Daues at the National Center for Super Computing Applications used HTCondor to transfer 460 terabytes of data." />
+<meta property="og:description" content="How Greg Daues at the National Center for Super Computing Applications used HTCondor to transfer 460 terabytes of data." />
+<link rel="canonical" href="https://osg-htc.org/spotlights/Using-HTCondor-For-Large-File-Transfer.html" />
+<meta property="og:url" content="https://osg-htc.org/spotlights/Using-HTCondor-For-Large-File-Transfer.html" />
+<meta property="og:site_name" content="PATh" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to Transfer 460 Terabytes? A File Transfer Case Study" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-01-15T00:00:00+00:00","datePublished":"2021-01-15T00:00:00+00:00","description":"How Greg Daues at the National Center for Super Computing Applications used HTCondor to transfer 460 terabytes of data.","headline":"How to Transfer 460 Terabytes? A File Transfer Case Study","mainEntityOfPage":{"@type":"WebPage","@id":"https://osg-htc.org/spotlights/Using-HTCondor-For-Large-File-Transfer.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://path-cc.io/web-preview/preview-event/images/logo/Logo_Round_Med.png"}},"url":"https://osg-htc.org/spotlights/Using-HTCondor-For-Large-File-Transfer.html"}</script>
+<!-- End Jekyll SEO tag -->
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </head>
 <body class='page page-news-single'>
-<div id="wrapper" class="wrapper">
-    
+
 
 
 <div>
-  <div class="container-lg">
+  <div class="container-xxl">
     <nav class="navbar navbar-expand-lg navbar-light ps-0 pe-0">
 
       <a class="navbar-brand" href="/web-preview/preview-event/">
-        <img height="70px" src="/web-preview/preview-event/images/logo/Logo_Round_Med.png" alt="PATh"/>
+        <img height="70" src="/web-preview/preview-event/images/logo/Logo_Round_Med.png" alt="PATh"/>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -48,6 +68,7 @@
               <a class="dropdown-item" href="/web-preview/preview-event/about">PATh</a>
               <a class="dropdown-item" href="/web-preview/preview-event/team">Team</a>
               <a class="dropdown-item" href="/web-preview/preview-event/glossary">Glossary</a>
+              <a class="dropdown-item" href="/web-preview/preview-event/contact">Contact</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -56,7 +77,9 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="facility-nav">
               <a class="dropdown-item" href="/web-preview/preview-event/facility/index.html">About</a>
-              <a class="dropdown-item" href="/web-preview/preview-event/facility/registration.html">Registration</a>
+              <a class="dropdown-item" href="https://portal.path-cc.io/documentation/overview/account_setup/registration/">Registration</a>
+              <a class="dropdown-item" href="https://portal.path-cc.io/documentation/">Documentation</a>
+              <a class="dropdown-item" href="/web-preview/preview-event/facility/citations.html">Citing PATh</a>
             </div>
           </li>
           
@@ -66,15 +89,15 @@
           </li>
           
           <li class="nav-item ">
+            <a class="nav-link" href="/web-preview/preview-event/software">Software</a>
+          </li>
+          
+          <li class="nav-item ">
             <a class="nav-link" href="/web-preview/preview-event/news/">News</a>
           </li>
           
           <li class="nav-item ">
             <a class="nav-link" href="/web-preview/preview-event/events/">Events</a>
-          </li>
-          
-          <li class="nav-item ">
-            <a class="nav-link" href="/web-preview/preview-event/contact/">Contact</a>
           </li>
           
         </ul>
@@ -91,33 +114,23 @@
   </div>
 </div>
 
-    <main>
-        <div class="container pb-5">
-            
+<main>
+  <div class="container-xxl pb-5">
 
 
-<div class="row mb-4">
-  <div class="col-12 col-xl-9 col-lg-10 col-md-11">
-    <h1 class="title mb-0">How to Transfer 460 Terabytes? A File Transfer Case Study</h1>
-<h1 class="mb-0 d-flex flex-row justify-content-between">
-    
-    
-    <small class="text-muted article-date">January 15, 2021</small>
-    
-</h1>
+
+<div class="row justify-content-center">
+  <div class="col-12 col-md-10 col-lg-9 col-xl-8 fs-5 ">
+    <h1 class="title my-3">How to Transfer 460 Terabytes? A File Transfer Case Study</h1>
 
 
   </div>
 </div>
 
-
-
-<div class="row justify-content-start">
-<div class="col-12 col-xl-9 col-lg-10 col-md-11">
-
-
-<div class="news news-single">
-  <div class="content"><p>When Greg Daues at the <a href="https://resources.istcoalition.org/national-center-for-supercomputing-applications" target="_blank">National Center for Supercomputing Applications (NCSA)</a> needed to transfer 460 Terabytes of NCSA files from <a href="https://in2p3.cnrs.fr/en/node/11" target="_blank">the National Institute of Nuclear and Particle Physics (IN2P3)</a> in Lyon, France to Urbana, Illinois, for a project they were working with <a href="https://www.fnal.gov/" target="_blank">FNAL</a>, <a href="https://cc.in2p3.fr/en/" target="_blank">CC-IN2P3</a> and the <a href="https://www.lsst.org/" target="_blank">Rubin Data Production team</a>, he turned to the <a href="https://research.cs.wisc.edu/htcondor/" target="_blank">HTCondor High Throughput system</a>, not to run computationally intensive jobs, as many do, but to manage the hundreds of thousands of I/O bound transfers.</p>
+<div class="row justify-content-center">
+  <div class="col-12 col-md-10 col-lg-9 col-xl-8">
+    <div class="news news-single">
+      <div class="content fs-5"><p>When Greg Daues at the <a href="https://resources.istcoalition.org/national-center-for-supercomputing-applications" target="_blank">National Center for Supercomputing Applications (NCSA)</a> needed to transfer 460 Terabytes of NCSA files from <a href="https://in2p3.cnrs.fr/en/node/11" target="_blank">the National Institute of Nuclear and Particle Physics (IN2P3)</a> in Lyon, France to Urbana, Illinois, for a project they were working with <a href="https://www.fnal.gov/" target="_blank">FNAL</a>, <a href="https://cc.in2p3.fr/en/" target="_blank">CC-IN2P3</a> and the <a href="https://www.lsst.org/" target="_blank">Rubin Data Production team</a>, he turned to the <a href="https://research.cs.wisc.edu/htcondor/" target="_blank">HTCondor High Throughput system</a>, not to run computationally intensive jobs, as many do, but to manage the hundreds of thousands of I/O bound transfers.</p>
 
 <h2>The Data</h2>
 
@@ -144,37 +157,76 @@ The operation will not overload the sender, the receiver, or any network in betw
 
 <p><em>(Note that the machine running HTCondor did not crash during this run, but if it had, all the jobs, after submission, were stored reliably on the local disk, and at such time as the crashed machine restarted, and the init program restarted the HTCondor system, all interrupted jobs would be restarted, and the process would continue without human intervention.)</em></p>
 </div>
+    </div>
+  </div>
+</div>
 </div>
 
-
-</div>
-</div>
+</main>
+<footer id="footer" class="mt-auto pt-2">
+  <div class="bg-primary">
+    <div class="container-xxl">
+      <div class="row justify-content-center py-2">
+        <div class="col-auto me-4 d-none d-md-flex">
+          <a class="my-auto" href="/web-preview/preview-event/"><img style="height:5rem" src="/web-preview/preview-event/images/logo/Logo_Round_Med.png" alt="PATh logo"></a>
         </div>
-    </main>
-</div>
-<div class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="footer-inner">
-          <h3 class="footer-title">PATh</h3>
-          <ul>
+        <div class="col-12 col-md-8 col-lg-8">
+          <div class="row justify-content-between my-2">
             
+            <div class="col-6 col-lg-4 col-xl-3 my-2">
+              <table>
+                <tr><th class="text-light">Researchers</th></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-event/facility/#accessing-the-path-facility">PATh Compute Credits</a></td></tr>
+                
+                <tr><td><a class="text-white" href="https://connect.osg-htc.org/signup">OSG Connect Account</a></td></tr>
+                
+              </table>
+            </div>
             
-            <li class="">
-              <a href="/web-preview/preview-event/">Home</a>
-            </li>
+            <div class="col-6 col-lg-4 col-xl-3 my-2">
+              <table>
+                <tr><th class="text-light">Organizations</th></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-event/#path-for-organizations">PATh for Organizations</a></td></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-event/software/">Software</a></td></tr>
+                
+              </table>
+            </div>
             
-            <li class="">
-              <a href="/web-preview/preview-event/contact/">Contact</a>
-            </li>
+            <div class="col-6 col-lg-4 col-xl-3 my-2">
+              <table>
+                <tr><th class="text-light">Documentation</th></tr>
+                
+                <tr><td><a class="text-white" href="https://portal.path-cc.io/documentation">PATh Facility</a></td></tr>
+                
+                <tr><td><a class="text-white" href="https://portal.osg-htc.org/documentation">OSPool User</a></td></tr>
+                
+              </table>
+            </div>
             
-          </ul>
+            <div class="col-6 col-lg-4 col-xl-3 my-2">
+              <table>
+                <tr><th class="text-light">Engagement</th></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-event/news">News</a></td></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-event/events/">Events</a></td></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-event/contact/">Contact</a></td></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-event/branding/">Branding</a></td></tr>
+                
+              </table>
+            </div>
+            
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</footer>
 <div class="sub-footer">
   <div class="container">
     <div class="row">
@@ -198,6 +250,8 @@ The operation will not overload the sender, the receiver, or any network in betw
 </div>
 
 <script type="text/javascript" src="/web-preview/preview-event/assets/js/scripts.js"></script>
+
+
 
 </body>
 </html>

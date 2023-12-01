@@ -3424,7 +3424,7 @@ main p a { text-decoration: underline; }
 
 .top-7 { top: 8rem; }
 
-.image-card-cap { height: 150px; object-fit: cover; }
+.image-card-cap { height: 200px; object-fit: cover; }
 
 .content img { max-width: 100%; }
 

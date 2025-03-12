@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Understanding HTCondor Logs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/web-preview/preview-contact/images/logo/Logo_Round_32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="/web-preview/preview-contact/assets/css/style.css?id=2" rel="stylesheet">
+    
+    <meta property="og:title" content="Partnership to Advance Throughput Computing" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://path-cc.io" />
+    <meta property="og:image" content="https://path-cc.io/images/logo/Logo_Primary_Acronym.png" />
+    <meta property="og:description" content="PATh brings together the Center for High Throughput Computing and the Open Science Grid in order to advance the nation’s campuses and science communities through the use of distributed High Throughput Computing." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="PATh" />
+    <meta name="twitter:creator" content="" />
+    <meta name="twitter:image" content="images/logo/Logo_Round_Med.png" />
+    <meta name="google-site-verification" content="ZmoYUNawmA-Tr3VNrpFqNBEMCBeldJxpgFwOAaa0TNw" />
+
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Understanding HTCondor Logs | PATh</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Understanding HTCondor Logs" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The ShadowLog provides a detailed description of a job as it moves through the condor system from when it is submitted until it terminates. For a typical job, the logs are relatively concise and understandable." />
+<meta property="og:description" content="The ShadowLog provides a detailed description of a job as it moves through the condor system from when it is submitted until it terminates. For a typical job, the logs are relatively concise and understandable." />
+<link rel="canonical" href="https://path-cc.io/web-preview/preview-contact/GIL/Understanding_HTCondor_Logs/" />
+<meta property="og:url" content="https://path-cc.io/web-preview/preview-contact/GIL/Understanding_HTCondor_Logs/" />
+<meta property="og:site_name" content="PATh" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-06-30T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Understanding HTCondor Logs" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-06-30T00:00:00+00:00","datePublished":"2024-06-30T00:00:00+00:00","description":"The ShadowLog provides a detailed description of a job as it moves through the condor system from when it is submitted until it terminates. For a typical job, the logs are relatively concise and understandable.","headline":"Understanding HTCondor Logs","mainEntityOfPage":{"@type":"WebPage","@id":"https://path-cc.io/web-preview/preview-contact/GIL/Understanding_HTCondor_Logs/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://path-cc.io/web-preview/preview-contact/images/logo/Logo_Round_Med.png"}},"url":"https://path-cc.io/web-preview/preview-contact/GIL/Understanding_HTCondor_Logs/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</head>
+<body class='page '>
+
+
+
+<div>
+  <div class="container-xxl">
+    <nav class="navbar navbar-expand-lg navbar-light ps-0 pe-0">
+
+      <a class="navbar-brand" href="/web-preview/preview-contact/">
+        <img height="70" src="/web-preview/preview-contact/images/logo/Logo_Round_Med.png" alt="PATh"/>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarNavDropdown" class="collapse navbar-collapse justify-content-between">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="facility-nav" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Facility
+            </a>
+            <div class="dropdown-menu" aria-labelledby="facility-nav">
+              <a class="dropdown-item" href="/web-preview/preview-contact/facility/index.html">About</a>
+              <a class="dropdown-item" href="https://portal.path-cc.io/documentation/overview/account_setup/registration/">Registration</a>
+              <a class="dropdown-item" href="https://portal.path-cc.io/documentation/">Documentation</a>
+              <a class="dropdown-item" href="/web-preview/preview-contact/facility/citations.html">Citing PATh</a>
+            </div>
+          </li>
+          
+          
+          <li class="nav-item ">
+            <a class="nav-link" href="/web-preview/preview-contact/services/">Services</a>
+          </li>
+          
+          <li class="nav-item ">
+            <a class="nav-link" href="/web-preview/preview-contact/software">Software</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="community-nav" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Community
+            </a>
+            <div class="dropdown-menu" aria-labelledby="community-nav">
+              <a class="dropdown-item" href="/web-preview/preview-contact/spotlights">Spotlights</a>
+              <a class="dropdown-item" href="/web-preview/preview-contact/events">Events</a>
+              <a class="dropdown-item" href="/web-preview/preview-contact/news">News</a>
+            </div>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="about-nav" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            About
+          </a>
+          <div class="dropdown-menu" aria-labelledby="about-nav">
+            <a class="dropdown-item" href="/web-preview/preview-contact/about">PATh</a>
+            <a class="dropdown-item" href="/web-preview/preview-contact/team">Team</a>
+            <a class="dropdown-item" href="/web-preview/preview-contact/glossary">Glossary</a>
+          </div>
+        </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+        </ul>
+        <div class="social-media d-none d-lg-block">
+          <a class="text-decoration-none" href="https://www.youtube.com/channel/UCd1UBXmZIgB4p85t2tu-gLw">
+            <img alt="Youtube Icon" src="/web-preview/preview-contact/images/icons/youtube.svg"/>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main>
+  <div class="container-xxl pb-5">
+<div class="row justify-content-center">
+    <div class="col-12 col-xl-7 col-lg-8 col-md-10">
+        <div class="pt-3 pb-2">
+            <h1 class="title my-3">Understanding HTCondor Logs</h1>
+
+
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-12 col-xl-7 col-lg-8 col-md-10">
+        <p>By: Immanuel Bareket, UCSB</p>
+        <p>In collaboration with Igor Sfiligoi, UCSD/SDSC</p>
+        <h2 class="pt-3">Summary</h2>
+        <p>The ShadowLog provides a detailed description of a job as it moves through the condor
+            system from when it is submitted until it terminates. For a typical job, the logs are relatively
+            concise and understandable. However, the logs for a job that isn’t processed regularly
+            are long, and difficult to understand. There is no consistent way to differentiate between
+            user errors, system errors, and irregular log messages that are not errors at all. There is
+            also no documentation on the expected state transitions for a typical job, and what that
+            should look like in the logs. All of these are necessary to better recognize error patterns
+            and make progress in error characterization.</p>
+            <p>
+            We thus propose that documentation is added to the HTCondor website outlining the
+            typical states a job should go through, and the corresponding log messages.</p>
+        <h2 class="pt-3">Condor State Transitions</h2>
+        <img src="/images/GIL/understanding-htcondor-logs/htcondor-logs.png" alt="HTCondor Log Map">
+        <h3 class="pt-4">Example ShadowLog for regular job:</h3>
+        <img src="/images/GIL/understanding-htcondor-logs/shadow-log-regular.png" alt="Regular ShadowLog">
+        <h3 class="pt-4">Example ShadowLog for bad job:</h3>
+        <p>(Note that logs for bad jobs can vary greatly depending on error)</p>
+        <img src="/images/GIL/understanding-htcondor-logs/shadow-log-bad.png" alt="Bad ShadowLog">
+        <h2 class="pt-3">Additional observations</h2>
+        <ul>
+            <li>Fatal vs Non-fatal errors
+                <ul>
+                    <li>A “bad” job can experience a fatal error and terminate with a non-zero exit status or it can recover and terminate with exit status 0.
+                        <ul>
+                            <li>Common non-fatal errors include but are not limited to: refused requests to run on a slot, file transfer failures, holds.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>User vs System errors
+                <ul>
+                    <li>Hold codes, reasons for eviction/disconnect, and other descriptive features can make it easy to determine whether an error is the fault of the user or the system.</li>
+                    <li>In errors that lack descriptions, it can be much more difficult. e.g. File transfer failures, unknown reasons for eviction/disconnect</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 class="pt-3">Parsing ShadowLog manually</h2>
+        <img src="/images/GIL/understanding-htcondor-logs/parsing-logs.png" alt="Parsing ShadowLog">
+        <h2 class="pt-3">Parsing ShadowLog with python</h2>
+        <a href="https://github.com/emanbareket/HTCondor_Immanuel/tree/main">https://github.com/emanbareket/HTCondor_Immanuel/tree/main</a>
+        <h2 class="pt-3">Possibilities for future advancement:</h2>
+        <ol>
+            <li>Looking deeper into the “Associated information”:
+                <ol type="a">
+                    <li>This information can be tracked at each transition and used to predict whether errors are user or system related.</li>
+                    <li>This predictive logic can then be used to improve condorErrorTracker.py, or any other future script, allowing it to filter out and focus only on system errors.</li>
+                    <li>Patterns in this information could also allow us to pinpoint specific causes of errors, and potentially be used to fix errors faster, or even prevent them.</li>
+                </ol>
+            </li>
+            <li>Predicting whether jobs will recover:
+                <ol type="a">
+                    <li>As of now, it is very difficult to predict whether or not a job will recover from an error, as you usually only know the error is fatal when the job terminates, and there is seemingly always a chance for it to recover before then.</li>
+                    <li>We could track the percentage of jobs that recover after experiencing every type of error, and use this to directly calculate the recovery probability for each error.</li>
+                    <li>We could also simply keep track of errors that are always fatal, though they may be scarce or not even exist.</li>
+                    <li>Machine learning can be used to find less visible/obvious patterns and make even better predictions.</li>
+                </ol>
+            </li>
+        </ol>
+</div>
+
+</main>
+<footer id="footer" class="mt-auto pt-2">
+  <div class="bg-primary">
+    <div class="container-xxl">
+      <div class="row justify-content-center py-2">
+        <div class="col-auto me-4 d-none d-md-flex">
+          <a class="my-auto" href="/web-preview/preview-contact/"><img style="height:5rem" src="/web-preview/preview-contact/images/logo/Logo_Round_Med.png" alt="PATh logo"></a>
+        </div>
+        <div class="col-12 col-md-8 col-lg-8">
+          <div class="row justify-content-between my-2">
+            
+            <div class="col-6 col-lg-4 col-xl-3 my-2">
+              <table>
+                <tr><th class="text-light">Researchers</th></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-contact/facility/#accessing-the-path-facility">PATh Compute Credits</a></td></tr>
+                
+                <tr><td><a class="text-white" href="https://portal.osg-htc.org">OSG Portal</a></td></tr>
+                
+              </table>
+            </div>
+            
+            <div class="col-6 col-lg-4 col-xl-3 my-2">
+              <table>
+                <tr><th class="text-light">Organizations</th></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-contact/#path-for-organizations">PATh for Organizations</a></td></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-contact/software/">Software</a></td></tr>
+                
+              </table>
+            </div>
+            
+            <div class="col-6 col-lg-4 col-xl-3 my-2">
+              <table>
+                <tr><th class="text-light">Documentation</th></tr>
+                
+                <tr><td><a class="text-white" href="https://portal.path-cc.io/documentation">PATh Facility</a></td></tr>
+                
+                <tr><td><a class="text-white" href="https://portal.osg-htc.org/documentation">OSPool User</a></td></tr>
+                
+              </table>
+            </div>
+            
+            <div class="col-6 col-lg-4 col-xl-3 my-2">
+              <table>
+                <tr><th class="text-light">Engagement</th></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-contact/news">News</a></td></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-contact/events/">Events</a></td></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-contact/contact/">Contact</a></td></tr>
+                
+                <tr><td><a class="text-white" href="/web-preview/preview-contact/branding/">Branding</a></td></tr>
+                
+              </table>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <div class="social">
+              <a href="https://www.nsf.gov/oac">
+                  <img alt="NSF Logo" height="70px" width="70px" src="/web-preview/preview-contact/images/logo/nsf-logo.svg">
+              </a>
+          </div>
+          <div class="copyright">
+              This project is supported by National Science Foundation under Cooperative Agreement
+              <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2030508">OAC-2030508</a>.
+              Any opinions, findings, conclusions or recommendations expressed in this material are those of the
+              authors and do not necessarily reflect the views of the National Science Foundation.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="/web-preview/preview-contact/assets/js/scripts.js"></script>
+
+
+
+</body>
+</html>

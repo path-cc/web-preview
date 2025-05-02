@@ -1,4 +1,0 @@
-{
-    "issuer":"https://path-cc.io",
-    "jwks_uri":"https://path-cc.io/.well-known/issuer.public.jwks"
-}
